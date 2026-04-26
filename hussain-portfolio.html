@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hussain Mujtaba – SEO & Marketing Expert</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0a0a0a;
+    --black2:  #111111;
+    --black3:  #161616;
+    --card:    #1a1a1a;
+    --border:  #272727;
+    --border2: #333333;
+    --g100:    #f5f5f5;
+    --g200:    #e0e0e0;
+    --g400:    #9e9e9e;
+    --g600:    #616161;
+    --g700:    #424242;
+    --white:   #ffffff;
+    --tag-bg:  #202020;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--black);
+    color: var(--g100);
+    line-height: 1.6;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* NOISE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 max(2rem, 6vw);
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.9);
+    backdrop-filter: blur(20px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.08em;
+    color: var(--white); text-decoration: none;
+  }
+  .nav-logo span { color: var(--g600); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--g600);
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--white); color: var(--black);
+    padding: 0.45rem 1.2rem; border-radius: 3px;
+    text-decoration: none; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-cta:hover { background: var(--g200); transform: translateY(-1px); }
+
+  /* SECTIONS */
+  section { padding: 100px max(2rem, 8vw); position: relative; z-index: 1; }
+
+  .label {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--g600);
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--g600); }
+
+  h2.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: var(--white); line-height: 1.0;
+    letter-spacing: 0.04em; margin-bottom: 2.5rem;
+  }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    padding-top: 130px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    overflow: hidden;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--border2); padding: 0.35rem 0.9rem;
+    border-radius: 2px; font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--g400); margin-bottom: 2rem;
+  }
+  .badge-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: #4ade80; box-shadow: 0 0 6px #4ade80;
+    animation: blink 2s ease-in-out infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 9vw, 8.5rem);
+    line-height: 0.92; letter-spacing: 0.02em;
+    color: var(--white); margin-bottom: 0.4rem;
+  }
+  .hero-name-line2 { color: var(--g600); }
+
+  .hero-role {
+    display: inline-block;
+    font-size: clamp(0.78rem, 1.1vw, 0.9rem);
+    font-weight: 400; color: var(--g400);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    border-left: 2px solid var(--g700);
+    padding-left: 0.85rem; margin: 1.5rem 0 2rem;
+  }
+
+  .hero-tagline {
+    font-size: clamp(0.93rem, 1.4vw, 1.03rem);
+    color: var(--g400); line-height: 1.8;
+    max-width: 460px; font-weight: 300;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-white {
+    background: var(--white); color: var(--black);
+    padding: 0.75rem 1.8rem; border-radius: 3px;
+    text-decoration: none; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-white:hover { background: var(--g200); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid var(--border2); color: var(--g400);
+    padding: 0.75rem 1.8rem; border-radius: 3px;
+    text-decoration: none; font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--g400); color: var(--white); transform: translateY(-2px); }
+
+  /* HERO RIGHT — stat grid */
+  .hero-right {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden;
+    align-self: center;
+  }
+  .stat-box {
+    background: var(--black2);
+    padding: 2rem 1.75rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
+    transition: background 0.2s;
+  }
+  .stat-box:hover { background: var(--black3); }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem; color: var(--white);
+    letter-spacing: 0.02em; line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--g600); font-weight: 400; }
+  .stat-desc { font-size: 0.72rem; color: var(--g700); font-weight: 300; margin-top: 0.2rem; }
+
+  /* TICKER */
+  .ticker-wrap {
+    overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 0.75rem 0; background: var(--black2); position: relative; z-index: 1;
+  }
+  .ticker {
+    display: flex; width: max-content;
+    animation: ticker 30s linear infinite;
+  }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .ticker-item {
+    display: flex; align-items: center; gap: 1.5rem;
+    padding: 0 2rem; white-space: nowrap;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--g700);
+  }
+  .ticker-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--g700); flex-shrink: 0; }
+
+  /* ABOUT */
+  #about { background: var(--black2); }
+  .about-grid {
+    display: grid; grid-template-columns: 360px 1fr; gap: 5rem; align-items: start;
+  }
+  .about-card {
+    background: var(--black3); border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden;
+    position: sticky; top: 80px;
+    height: 700px;
+  }
+  .about-card-top {
+    height: 400px; background: var(--card);
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
+  }
+  .about-card-top::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 20px,
+      rgba(255,255,255,0.018) 20px, rgba(255,255,255,0.018) 21px
+    );
+  }
+  .about-initials {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem; color: var(--g700);
+    letter-spacing: 0.08em; position: relative; z-index: 1;
+    margin-top: 200px;
+  }
+  .about-initials img{object-fit: contain;width: auto;height: 500px;margin-bottom: 150px;}
+  .about-card-body { padding: 1.5rem; }
+  .about-card-name { font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 0.2rem; }
+  .about-card-role { font-size: 0.78rem; color: var(--g600); margin-bottom: 1.25rem; }
+  .about-card-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+  }
+  .about-card-row:last-child { border-bottom: none; }
+  .card-key { color: var(--g700); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.66rem; }
+  .card-val { color: var(--g400); }
+
+  .about-content p {
+    color: var(--g400); line-height: 1.9; font-size: 0.95rem;
+    font-weight: 300; margin-bottom: 1.25rem;
+  }
+  .about-content p strong { color: var(--g200); font-weight: 600; }
+  .about-quote {
+    border-left: 2px solid var(--g700);
+    padding: 1rem 1.25rem; margin: 2rem 0;
+    font-size: 1.02rem; font-style: italic;
+    color: var(--g400); line-height: 1.7; font-weight: 300;
+  }
+  .about-quote cite {
+    display: block; font-size: 0.7rem; font-style: normal;
+    color: var(--g700); margin-top: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  /* SERVICES */
+  #services { background: var(--black); }
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: end;
+    margin-bottom: 3.5rem;
+  }
+  .services-sub { color: var(--g600); font-size: 0.9rem; font-weight: 300; line-height: 1.8; }
+  .services-list { display: flex; flex-direction: column; }
+  .service-row {
+    display: grid; grid-template-columns: 3rem 1fr auto;
+    align-items: start; gap: 1.5rem;
+    padding: 2rem 0; border-bottom: 1px solid var(--border);
+    transition: padding-left 0.3s ease;
+  }
+  .service-row:first-child { border-top: 1px solid var(--border); }
+  .service-row:hover { padding-left: 0.75rem; }
+  .service-row:hover .service-num { color: var(--white); }
+  .service-row:hover .service-name { color: var(--white); }
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; color: var(--g700);
+    letter-spacing: 0.04em; padding-top: 0.15rem;
+    transition: color 0.2s;
+  }
+  .service-name {
+    font-size: 1.2rem; font-weight: 600; color: var(--g200);
+    margin-bottom: 0.5rem; letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+  .service-desc { font-size: 0.84rem; color: var(--g700); line-height: 1.7; font-weight: 300; max-width: 520px; }
+  .service-tag {
+    background: var(--tag-bg); border: 1px solid var(--border);
+    color: var(--g600); padding: 0.3rem 0.75rem;
+    border-radius: 2px; font-size: 0.66rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap;
+    align-self: start; margin-top: 0.25rem;
+  }
+
+  /* PORTFOLIO */
+  #portfolio { background: var(--black2); }
+  .portfolio-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden; margin-top: 0.5rem;
+  }
+  .project-card {
+    background: var(--black3); padding: 2.25rem;
+    transition: background 0.2s; position: relative;
+  }
+  .project-card:hover { background: var(--card); }
+  .project-card::after {
+    content: attr(data-num);
+    position: absolute; bottom: 1.5rem; right: 1.75rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; color: var(--border2);
+    line-height: 1; pointer-events: none;
+  }
+  .project-cat {
+    display: inline-block; border: 1px solid var(--border2); color: var(--g700);
+    padding: 0.2rem 0.65rem; border-radius: 2px;
+    font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 1.1rem;
+  }
+  .project-title {
+    font-size: 1.02rem; font-weight: 600; color: var(--g200);
+    margin-bottom: 1.5rem; letter-spacing: -0.01em; line-height: 1.35; padding-right: 3rem;
+  }
+  .psr { margin-bottom: 0.85rem; }
+  .psr-label {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--g700); margin-bottom: 0.25rem;
+  }
+  .psr-text { font-size: 0.82rem; color: var(--g600); line-height: 1.65; font-weight: 300; }
+  .psr-result { font-size: 0.83rem; color: var(--g200); font-weight: 500; }
+
+  /* SKILLS */
+  #skills { background: var(--black); }
+  .skills-layout {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .skill-group { margin-bottom: 2.5rem; }
+  .skill-group-head {
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--g700);
+    margin-bottom: 1.4rem; padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-item { margin-bottom: 1.1rem; }
+  .skill-row { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+  .skill-name { font-size: 0.84rem; font-weight: 500; color: var(--g400); }
+  .skill-pct { font-size: 0.72rem; color: var(--g700); }
+  .skill-bar { height: 2px; background: var(--border2); border-radius: 1px; overflow: hidden; }
+  .skill-fill {
+    height: 100%; background: var(--g400); border-radius: 1px;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .tag-group { margin-bottom: 2rem; }
+  .tag-group-head {
+    font-size: 0.66rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--g700);
+    margin-bottom: 1rem; padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tags-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: var(--tag-bg); border: 1px solid var(--border);
+    color: var(--g600); padding: 0.35rem 0.85rem;
+    border-radius: 2px; font-size: 0.75rem; font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .tag:hover { border-color: var(--g600); color: var(--g200); background: var(--card); }
+
+  /* CONTACT */
+  #contact { background: var(--black2); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start;
+  }
+  .contact-left p { color: var(--g600); font-size: 0.92rem; line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; }
+  .c-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 0; border-bottom: 1px solid var(--border);
+    text-decoration: none; color: var(--g600); font-size: 0.85rem;
+    transition: color 0.2s, padding-left 0.2s;
+  }
+  .c-item:last-child { border-bottom: none; }
+  .c-item:hover { color: var(--white); padding-left: 0.5rem; }
+  .c-item-label {
+    display: block; font-size: 0.6rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em; color: var(--g700); margin-bottom: 0.1rem;
+  }
+  .c-icon { font-size: 1rem; flex-shrink: 0; }
+
+  .fgroup { margin-bottom: 1.1rem; }
+  .flabel {
+    display: block; font-size: 0.65rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--g700); margin-bottom: 0.5rem;
+  }
+  .finput {
+    width: 100%; padding: 0.75rem 1rem;
+    background: var(--black3); border: 1px solid var(--border);
+    border-radius: 3px; font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem; color: var(--g200); outline: none;
+    transition: border-color 0.2s;
+  }
+  .finput::placeholder { color: var(--g700); }
+  .finput:focus { border-color: var(--g600); }
+  textarea.finput { resize: vertical; min-height: 130px; }
+  .fsubmit {
+    width: 100%; background: var(--white); color: var(--black);
+    padding: 0.85rem; border: none; border-radius: 3px;
+    font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    cursor: pointer; transition: background 0.2s, transform 0.15s;
+  }
+  .fsubmit:hover { background: var(--g200); transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black); border-top: 1px solid var(--border);
+    padding: 2rem max(2rem, 6vw);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none;
+  }
+  .footer-logo span { color: var(--g700); }
+  .footer-copy { font-size: 0.74rem; color: var(--g700); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a {
+    font-size: 0.7rem; color: var(--g700); text-decoration: none;
+    letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--g400); }
+
+  /* REVEAL ANIMATIONS */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; gap: 3rem; padding-top: 110px; }
+    .hero-right { display: none; }
+    .about-grid, .contact-grid, .skills-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-card { position: static; }
+    .services-header { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 64px 1.25rem; }
+  }
+</style>
+</head>
+<body>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">HUSSAIN<span> MUJTABA</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Talk</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left reveal">
+    <div class="hero-badge"><div class="badge-dot"></div> Available for Projects</div>
+    <h1 class="hero-name">
+      HUSSAIN<br>
+      <span class="hero-name-line2">MUJTABA</span>
+    </h1>
+    <div class="hero-role">SEO &amp; Marketing Expert · Sairow Solution GB</div>
+    <p class="hero-tagline">Helping businesses grow with practical SEO and smart marketing strategies — no fluff, just what actually works.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-white">View My Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right reveal">
+    <div class="stat-box">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Years of Experience</div>
+      <div class="stat-desc">In SEO &amp; digital marketing</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">40+</div>
+      <div class="stat-label">Projects Completed</div>
+      <div class="stat-desc">Across various industries</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Happy Clients</div>
+      <div class="stat-desc">Businesses &amp; startups</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">95%</div>
+      <div class="stat-label">Client Retention</div>
+      <div class="stat-desc">Long-term relationships</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-item">SEO Optimization<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Keyword Research<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Content Strategy<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Digital Campaigns<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Google Analytics<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Ahrefs &amp; SEMrush<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Technical SEO<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Link Building<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Local SEO<div class="ticker-sep"></div></div>
+    <div class="ticker-item">On-Page SEO<div class="ticker-sep"></div></div>
+    <div class="ticker-item">SEO Optimization<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Keyword Research<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Content Strategy<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Digital Campaigns<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Google Analytics<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Ahrefs &amp; SEMrush<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Technical SEO<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Link Building<div class="ticker-sep"></div></div>
+    <div class="ticker-item">Local SEO<div class="ticker-sep"></div></div>
+    <div class="ticker-item">On-Page SEO<div class="ticker-sep"></div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-card reveal">
+      <div class="about-card-top">
+        <div class="about-initials"><img src="img/hussain.jpeg" alt=""></div>
+      </div>
+      <div class="about-card-body">
+        <div class="about-card-name">Hussain Mujtaba</div>
+        <div class="about-card-role">SEO &amp; Marketing Expert</div>
+        <div class="about-card-row"><span class="card-key">Company</span><span class="card-val">Sairow Solution GB</span></div>
+        <div class="about-card-row"><span class="card-key">Location</span><span class="card-val">GB, Pakistan</span></div>
+        <div class="about-card-row"><span class="card-key">Focus</span><span class="card-val">SEO &amp; Digital Marketing</span></div>
+        <div class="about-card-row"><span class="card-key">Status</span><span class="card-val" style="color:#4ade80;">Open to Work</span></div>
+      </div>
+    </div>
+    <div class="about-content">
+      <div class="label reveal">About Me</div>
+      <h2 class="section-title reveal">Who I am &amp;<br>what I do</h2>
+      <p class="reveal">I'm Hussain Mujtaba, an SEO and marketing professional with hands-on experience helping businesses get found online and turn that traffic into real results. I currently work as an SEO &amp; Marketing Expert at <strong>Sairow Solution GB</strong>, handling everything from technical SEO audits to full digital campaigns.</p>
+      <p class="reveal">My approach is straightforward: understand the business goal first, then build a strategy that supports it. I don't believe in one-size-fits-all solutions or chasing vanity metrics. Whether you're a startup trying to get noticed or an established business looking to improve online performance, I focus on what moves the needle — <strong>organic growth, qualified traffic, and measurable ROI</strong>.</p>
+      <blockquote class="about-quote reveal">
+        "Good SEO isn't about gaming the algorithm. It's about understanding your audience and making it easy for them to find you."
+        <cite>— Hussain Mujtaba</cite>
+      </blockquote>
+      <p class="reveal">I enjoy working closely with clients, explaining my thinking clearly, and delivering work that makes sense — not just in theory, but in practice. If you're looking for someone direct, reliable, and outcome-focused, I'd love to connect.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header">
+    <div>
+      <div class="label reveal">Services</div>
+      <h2 class="section-title reveal">What I offer</h2>
+    </div>
+    <p class="services-sub reveal">I keep my service list focused so I can do each thing well. No overpromising — just solid, reliable work in the areas I know best.</p>
+  </div>
+  <div class="services-list">
+    <div class="service-row reveal">
+      <div class="service-num">01</div>
+      <div>
+        <div class="service-name">SEO Optimization</div>
+        <div class="service-desc">On-page and technical SEO that helps your site rank higher and stay there. Includes full audits, targeted fixes, and ongoing improvements based on data — not guesswork.</div>
+      </div>
+      <div class="service-tag">Core</div>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">02</div>
+      <div>
+        <div class="service-name">Keyword Research</div>
+        <div class="service-desc">Finding the right keywords — ones your actual customers search for, with realistic ranking opportunities. Not just high-volume terms that look impressive but never convert.</div>
+      </div>
+      <div class="service-tag">Research</div>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">03</div>
+      <div>
+        <div class="service-name">Content Strategy</div>
+        <div class="service-desc">Building a content plan that supports your SEO goals and speaks to your audience. I help you figure out what to create, when, and why it matters for your business.</div>
+      </div>
+      <div class="service-tag">Strategy</div>
+    </div>
+    <div class="service-row reveal">
+      <div class="service-num">04</div>
+      <div>
+        <div class="service-name">Digital Marketing Campaigns</div>
+        <div class="service-desc">Planning and running campaigns across search and social channels. Clear goals, clean tracking, and honest reporting on what's working and what needs adjusting.</div>
+      </div>
+      <div class="service-tag">Campaigns</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="label reveal">Selected Work</div>
+  <h2 class="section-title reveal">Recent Projects</h2>
+  <div class="portfolio-grid">
+    <div class="project-card reveal" data-num="01">
+      <div class="project-cat">Local SEO</div>
+      <div class="project-title">Golden Adventure Tours </div>
+      <div class="psr">
+        <div class="psr-label">Problem</div>
+        <div class="psr-text">A local  services company had near-zero organic presence. Competitors dominated all relevant search terms in their area.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Solution</div>
+        <div class="psr-text">Full technical audit, Google Business Profile optimization, local citation building, and targeted content around service + location pages.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Result</div>
+        <div class="psr-result">↑ 210% organic traffic in 5 months. First page for 12 target keywords.</div>
+      </div>
+    </div>
+    <div class="project-card reveal" data-num="02">
+      <div class="project-cat">E-commerce SEO</div>
+      <div class="project-title">Al Qaim Quranic Acedemy </div>
+      <div class="psr">
+        <div class="psr-label">Problem</div>
+        <div class="psr-text"> poor visibility. High bounce rate and thin descriptions were hurting both rankings and conversions.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Solution</div>
+        <div class="psr-text">Rewrote product pages with targeted keywords, fixed site structure, improved page speed, and added structured data markup.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Result</div>
+        <div class="psr-result">↑ 38% uplift in organic sessions. Bounce rate down 22%.</div>
+      </div>
+    </div>
+    <div class="project-card reveal" data-num="03">
+      <div class="project-cat">Content Strategy</div>
+      <div class="project-title">SaaS Startup – Gencodelabs</div>
+      <div class="psr">
+        <div class="psr-label">Problem</div>
+        <div class="psr-text">B2B startup entirely reliant on paid ads. High CAC, fragile growth, no organic foundation.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Solution</div>
+        <div class="psr-text">6-month content plan targeting bottom-of-funnel queries, comparison and use-case pages, basic link-building process.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Result</div>
+        <div class="psr-result">↑ 3× organic traffic in 6 months. Reduced paid dependency by ~30%.</div>
+      </div>
+    </div>
+    <div class="project-card reveal" data-num="04">
+      <div class="project-cat">Digital Campaign</div>
+      <div class="project-title">Medical Company – Medizone project</div>
+      <div class="psr">
+        <div class="psr-label">Problem</div>
+        <div class="psr-text">New product line launch needed awareness and direct sales from digital channels — quickly, within a tight budget.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Solution</div>
+        <div class="psr-text">Coordinated campaign across Google Search, Meta Ads, and email — consistent messaging, clear tracking, weekly optimization.</div>
+      </div>
+      <div class="psr">
+        <div class="psr-label">Result</div>
+        <div class="psr-result">↑ 4.2× ROAS. 90-day sales target exceeded by 25%.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="label reveal">Toolkit</div>
+  <h2 class="section-title reveal">Skills &amp; Tools</h2>
+  <div class="skills-layout">
+    <div class="reveal">
+      <div class="skill-group">
+        <div class="skill-group-head">SEO &amp; Analytics Tools</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Google Analytics &amp; Search Console</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Ahrefs</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">SEMrush</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Screaming Frog</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="82"></div></div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-head">Marketing &amp; Paid Channels</div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Google Ads</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Meta Ads (Facebook / Instagram)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Email Marketing</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="78"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Reporting &amp; Analytics</span><span class="skill-pct">92%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="tag-group">
+        <div class="tag-group-head">SEO Specialties</div>
+        <div class="tags-wrap">
+          <span class="tag">On-Page SEO</span>
+          <span class="tag">Technical SEO</span>
+          <span class="tag">Local SEO</span>
+          <span class="tag">Link Building</span>
+          <span class="tag">SEO Auditing</span>
+          <span class="tag">Structured Data</span>
+          <span class="tag">Core Web Vitals</span>
+          <span class="tag">WordPress SEO</span>
+        </div>
+      </div>
+      <div class="tag-group">
+        <div class="tag-group-head">Strategy &amp; Content</div>
+        <div class="tags-wrap">
+          <span class="tag">Keyword Research</span>
+          <span class="tag">Competitor Analysis</span>
+          <span class="tag">Content Planning</span>
+          <span class="tag">Conversion Optimisation</span>
+          <span class="tag">Campaign Strategy</span>
+          <span class="tag">Audience Research</span>
+          <span class="tag">Reporting Dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-left">
+      <div class="label reveal">Contact</div>
+      <h2 class="section-title reveal">Let's work<br>together</h2>
+      <p class="reveal">Whether you have a project in mind, want to talk through a challenge, or just want to see if we'd be a good fit — feel free to reach out. I'll get back to you within a day or two. No pressure, no sales pitch.</p>
+      <div class="contact-items reveal">
+        <a href="mailto:hussain@sairowsolution.com" class="c-item">
+          <span class="c-icon">✉</span>
+          <div><span class="c-item-label">Email</span>hussain@sairowsolution.com</div>
+        </a>
+        <a href="https://linkedin.com/in/hussainmujtaba" class="c-item" target="_blank">
+          <span class="c-icon">in</span>
+          <div><span class="c-item-label">LinkedIn</span>linkedin.com/in/hussainmujtaba</div>
+        </a>
+        <a href="https://wa.me/92 355 4936235" class="c-item" target="_blank">
+          <span class="c-icon">💬</span>
+          <div><span class="c-item-label">WhatsApp</span>+92 355 4936235</div>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <form onsubmit="sendToWhatsApp(event)">
+  <div class="fgroup">
+    <label class="flabel">Your Name</label>
+    <input type="text" id="wa-name" class="finput" placeholder="John Smith" required>
+  </div>
+  <div class="fgroup">
+    <label class="flabel">Email Address</label>
+    <input type="email" id="wa-email" class="finput" placeholder="john@company.com" required>
+  </div>
+  <div class="fgroup">
+    <label class="flabel">Message</label>
+    <textarea id="wa-message" class="finput" placeholder="Tell me about your project..." required></textarea>
+  </div>
+  <button type="submit" class="fsubmit" id="fsub">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  Send via WhatsApp
+</button>
+</form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">HUSSAIN<span>.</span></a>
+  <span class="footer-copy">© 2025 Hussain Mujtaba · Sairow Solution GB</span>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal + skill bars
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.classList.add('show');
+          e.target.querySelectorAll('.skill-fill').forEach(b => {
+            b.style.transform = `scaleX(${b.dataset.w / 100})`;
+          });
+        }, 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Form submit
+  function sendToWhatsApp(e) {
+  e.preventDefault();
+
+  // ✅ Replace with your actual WhatsApp number (country code + number, no + or spaces)
+  const phoneNumber = "+92 355 4936235"; // Example: Pakistan +92 300 1234567
+
+  const name    = document.getElementById('wa-name').value.trim();
+  const email   = document.getElementById('wa-email').value.trim();
+  const message = document.getElementById('wa-message').value.trim();
+
+  const text = `Hello Hussain! 👋
+
+*New Portfolio Inquiry*
+
+*Name:* ${name}
+*Email:* ${email}
+
+*Message:*
+${message}`;
+
+  const encoded = encodeURIComponent(text);
+  const waURL   = `https://wa.me/${923554936235}?text=${encoded}`;
+
+  // Open WhatsApp in new tab
+  window.open(waURL, '_blank');
+
+  // Visual feedback
+  const btn = document.getElementById('fsub');
+  btn.textContent = 'Opening WhatsApp ✓';
+  btn.style.background = '#25D366';
+  btn.style.color = '#000';
+
+  setTimeout(() => {
+    btn.textContent = 'Send via WhatsApp';
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>
